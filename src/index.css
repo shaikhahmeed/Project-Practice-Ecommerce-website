@@ -1,1 +1,18 @@
 @import "tailwindcss";
+
+body{
+    font-family: "Quicksand", sans-serif;
+}
+
+@utility container {
+    margin: auto;
+    padding-inline:2rem;
+}
+
+@theme{
+    --color-brand:#3BB77E;
+    --color-primary:#253D4E;
+    --color-secondary:#7E7E7E;
+}
+
+
