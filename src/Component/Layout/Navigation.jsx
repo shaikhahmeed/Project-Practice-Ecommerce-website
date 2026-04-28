@@ -1,8 +1,11 @@
 import React from 'react'
 import { CiShoppingCart } from 'react-icons/ci'
-import { FaArrowsRotate, FaRegHeart, FaRegUser } from 'react-icons/fa6'
-import { IoMdSearch } from 'react-icons/io'
-import { MdKeyboardArrowDown } from 'react-icons/md'
+import { FaArrowsRotate, FaFire, FaRegHeart, FaRegUser } from 'react-icons/fa6'
+import { FiShoppingCart } from 'react-icons/fi'
+import { IoIosArrowDown, IoMdSearch } from 'react-icons/io'
+import { MdKeyboardArrowDown, MdOutlineKeyboardArrowDown } from 'react-icons/md'
+import { PiCirclesFourLight } from 'react-icons/pi'
+import { TfiHeadphoneAlt } from 'react-icons/tfi'
 import { Link } from 'react-router'
 
 const Navigation = () => {
@@ -10,7 +13,7 @@ const Navigation = () => {
     <>
     <div>
        {/* header */}
-       <div className='flex justify-between'>
+       <div className='flex justify-between border-b-2 border-b-[#ECECEC] pb-3'>
         <div>
           <ul className='flex gap-5 text-secondary font-medium'>
             <li> About Us</li>
@@ -37,7 +40,7 @@ const Navigation = () => {
         </div>
        </div>
        {/* body */}
-       <div className='flex justify-between items-center my-9'>
+       <div className='flex justify-between items-center my-9 border-b-2 border-b-[#ECECEC] pb-8'>
         <div>
           <Link to={"/#"}><img src="public/logo.png" alt="logo" /></Link>
         </div>
@@ -59,21 +62,72 @@ const Navigation = () => {
         </div>
         <div>
           <ul className='flex gap-2.5'>
-            <li className='flex text-end'>
+            <li className='flex text-end gap-1'>
                <Link><p className='text-primary'><FaArrowsRotate /></p></Link>
                <Link><p className='text-secondary'>Compare</p></Link>
             </li>
-            <li className='flex text-end'>
+            <li className='flex text-end gap-1'>
               <Link><p className='text-primary'><FaRegHeart /></p></Link>
               <Link><p className='text-secondary'>Wishlist</p></Link>
             </li>
-            <li className='flex text-end'>
-              <Link><p className='text-primary'><CiShoppingCart /></p></Link>
+            <li className='flex text-end gap-1'>
+              <Link><p className='text-primary'><FiShoppingCart /></p></Link>
               <Link><p className='text-secondary'>Cart</p></Link>
             </li>
-            <li className='flex text-end'>
+            <li className='flex text-end gap-1'>
               <Link><p className='text-primary'><FaRegUser /></p></Link>
               <Link><p  className='text-secondary'>Account</p></Link>
+            </li>
+          </ul>
+        </div>
+       </div>
+       {/* footer */}
+       <div className='flex justify-between items-center shadow-2xs pb-3.5'>
+        <div className='flex gap-2 items-center py-3.5 px-5 text-base text-[#FFFFFF] bg-brand rounded-xl cursor-pointer'>
+          <p><PiCirclesFourLight /></p>
+          <p>Browse All Categories</p>
+          <p><MdOutlineKeyboardArrowDown /></p>
+        </div>
+        <div>
+          <ul className='flex gap-8 font-bold text-primary'>
+            <li className='flex gap-2 items-center'>
+              <p><FaFire /></p>
+              <p>Deals</p>
+            </li>
+            <li className='flex gap-2 items-center'>
+              <p>Home </p>
+              <p><IoIosArrowDown /></p>
+            </li>
+            <Link>About</Link>
+            <li className='flex gap-2 items-center'>
+              <p>Shop </p>
+              <p><IoIosArrowDown /></p>
+            </li>
+            <li className='flex gap-2 items-center'>
+              <p>Vendors </p>
+              <p><IoIosArrowDown /></p>
+            </li>
+            <li className='flex gap-2 items-center'>
+              <p>Megamenu </p>
+              <p><IoIosArrowDown /></p>
+            </li>
+            <li className='flex gap-2 items-center'>
+              <p>Blog </p>
+              <p><IoIosArrowDown /></p>
+            </li>
+            <li className='flex gap-2 items-center'>
+              <p>Pages </p>
+              <p><IoIosArrowDown /></p>
+            </li>
+            <Link>Contact</Link>
+          </ul>
+        </div>
+        <div>
+          <ul className='flex gap-3'>
+            <li className='text-primary text-5xl'><TfiHeadphoneAlt /></li>
+            <li>
+              <p className='font-bold text-brand text-3xl'>1900 - 888</p>
+              <p className='text-xs font-medium text-secondary'>24/7 Support Center</p>
             </li>
           </ul>
         </div>
