@@ -11,7 +11,7 @@ import { Link } from 'react-router'
 const Navigation = () => {
   return (
     <>
-    <div>
+    <div className='container'>
        {/* header */}
        <div className='flex justify-between border-b-2 border-b-[#ECECEC] pb-3'>
         <div>
@@ -44,8 +44,8 @@ const Navigation = () => {
         <div>
           <Link to={"/#"}><img src="public/logo.png" alt="logo" /></Link>
         </div>
-        <div className='flex py-4 pl-5 items-center gap-3.5 border-2 rounded-xs border-brand'>
-          <div className=''>
+        <div className='flex py-4 pl-5 pr-1.5 items-center gap-3.5 border-2 rounded-xl border-brand'>
+          <div>
             <select name="" id="" className='outline-0 cursor-pointer'>
             <option value="">All Categories</option>
             <option value="">All Categories</option>
@@ -55,7 +55,7 @@ const Navigation = () => {
             <option value="">All Categories</option>
             </select>
           </div>
-          <div className='text-center'>
+          <div className='text-center flex gap-80'>
             <input type="text" placeholder='Search for items...' className='outline-0'/>
             <button className='cursor-pointer'><IoMdSearch /></button>
           </div>
