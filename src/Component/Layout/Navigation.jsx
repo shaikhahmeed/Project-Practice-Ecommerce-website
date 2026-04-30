@@ -11,7 +11,7 @@ import { Link } from 'react-router'
 const Navigation = () => {
   return (
     <>
-    <div className='container'>
+    <div className='container shadow-2xs pb-5'>
        {/* header */}
        <div className='flex justify-between border-b-2 border-b-[#ECECEC] pb-3'>
         <div>

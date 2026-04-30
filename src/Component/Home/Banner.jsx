@@ -1,12 +1,13 @@
 import React from 'react'
 import SearchBar from '../Utility/SearchBar'
 import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
 
 const Banner = () => {
 
-    const settings = {
+  const settings = {
     dots: true,
     infinite: true,
     speed: 500,
@@ -14,7 +15,6 @@ const Banner = () => {
     slidesToScroll: 1
   };
 
-  
   return (
     <section>
       <div className="container">
