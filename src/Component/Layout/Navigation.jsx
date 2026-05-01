@@ -16,25 +16,25 @@ const Navigation = () => {
        <div className='flex justify-between border-b-2 border-b-[#ECECEC] pb-3'>
         <div>
           <ul className='flex gap-5 text-secondary font-medium'>
-            <li> About Us</li>
-            <li>My Account</li>
-            <li> Wishlist</li>
-            <li> Order Tracking</li>
+            <li className='hover:text-brand'> About Us</li>
+            <li className='hover:text-brand'>My Account</li>
+            <li className='hover:text-brand'> Wishlist</li>
+            <li className='hover:text-brand'> Order Tracking</li>
           </ul>
         </div>
         <div>
-          <p className='text-secondary font-medium'>Supper Value Deals - Save more with coupons</p>
+          <p className='text-secondary font-medium hover:text-brand'>Supper Value Deals - Save more with coupons</p>
         </div>
         <div>
           <ul className='flex gap-5 text-secondary font-medium'>
             <li>Need help? Call Us: <span className='text-brand'>+ 1800 900</span></li>
-            <li className='flex gap-1 items-center'>
-              <button>English</button>
-              <p><MdKeyboardArrowDown /></p>
+            <li className='flex gap-1 items-center hover:text-brand'>
+              <button className='cursor-pointer'>English</button>
+              <p className='cursor-pointer'><MdKeyboardArrowDown /></p>
             </li>
-            <li className='flex gap-1 items-center'>
-              <button>USD </button>
-              <p><MdKeyboardArrowDown /></p>
+            <li className='flex gap-1 items-center hover:text-brand'>
+              <button className='cursor-pointer'>USD </button>
+              <p className='cursor-pointer'><MdKeyboardArrowDown /></p>
             </li>
           </ul>
         </div>
@@ -42,7 +42,7 @@ const Navigation = () => {
        {/* body */}
        <div className='flex justify-between items-center my-9 border-b-2 border-b-[#ECECEC] pb-8'>
         <div>
-          <Link to={"/#"}><img src="public/logo.png" alt="logo" /></Link>
+          <Link to={""}><img src="public/logo.png" alt="logo" /></Link>
         </div>
         <div className='flex py-4 pl-5 pr-1.5 items-center gap-3.5 border-2 rounded-xl border-brand'>
           <div>
@@ -90,32 +90,32 @@ const Navigation = () => {
         </div>
         <div>
           <ul className='flex gap-8 font-bold text-primary'>
-            <li className='flex gap-2 items-center'>
+            <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
               <p><FaFire /></p>
               <p>Deals</p>
             </li>
-            <li className='flex gap-2 items-center'>
+            <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
               <p>Home </p>
               <p><IoIosArrowDown /></p>
             </li>
             <Link>About</Link>
-            <li className='flex gap-2 items-center'>
+            <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
               <p>Shop </p>
               <p><IoIosArrowDown /></p>
             </li>
-            <li className='flex gap-2 items-center'>
+            <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
               <p>Vendors </p>
               <p><IoIosArrowDown /></p>
             </li>
-            <li className='flex gap-2 items-center'>
+            <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
               <p>Megamenu </p>
               <p><IoIosArrowDown /></p>
             </li>
-            <li className='flex gap-2 items-center'>
+            <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
               <p>Blog </p>
               <p><IoIosArrowDown /></p>
             </li>
-            <li className='flex gap-2 items-center'>
+            <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
               <p>Pages </p>
               <p><IoIosArrowDown /></p>
             </li>

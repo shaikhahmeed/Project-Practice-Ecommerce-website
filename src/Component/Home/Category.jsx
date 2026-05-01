@@ -13,10 +13,10 @@ const Category = () => {
             <div className='flex gap-7'>
                 <h2 className='font-bold text-3xl text-primary'>Featured Categories</h2>
                 <ul className='font-light text-base flex gap-7 text-primary items-end'>
-                    <li className='cursor-pointer'>Cake & Milk</li>
-                    <li className='cursor-pointer'>Coffes & Teas</li>
-                    <li className='cursor-pointer'>Pet Foods</li>
-                    <li className='cursor-pointer'>Vegetables</li>
+                    <li className='cursor-pointer hover:text-brand'>Cake & Milk</li>
+                    <li className='cursor-pointer hover:text-brand'>Coffes & Teas</li>
+                    <li className='cursor-pointer hover:text-brand'>Pet Foods</li>
+                    <li className='cursor-pointer hover:text-brand'>Vegetables</li>
                 </ul>
             </div>
             <div className='flex gap-6'>
