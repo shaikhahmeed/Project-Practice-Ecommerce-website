@@ -3,6 +3,8 @@ import { CategoryItem } from './CategoryItem'
 import "slick-carousel/slick/slick.css";
 import Slider from "react-slick";
 import CategoryItem2 from './CategoryItem2';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
 
 
 const Category = () => {
@@ -20,16 +22,20 @@ const Category = () => {
                 </ul>
             </div>
             <div className='flex gap-6'>
-                <CategoryItem/>
-                <CategoryItem/>
-                <CategoryItem/>
-                <CategoryItem/>
-                <CategoryItem/>
-                <CategoryItem/>
-                <CategoryItem/>
-                <CategoryItem/>
-                <CategoryItem/>
-                <CategoryItem/>
+                <Swiper slidesPerView={10} 
+                        loop={true}>
+                <SwiperSlide><CategoryItem/></SwiperSlide>           
+                <SwiperSlide><CategoryItem/></SwiperSlide>           
+                <SwiperSlide><CategoryItem/></SwiperSlide>           
+                <SwiperSlide><CategoryItem/></SwiperSlide>           
+                <SwiperSlide><CategoryItem/></SwiperSlide>           
+                <SwiperSlide><CategoryItem/></SwiperSlide>           
+                <SwiperSlide><CategoryItem/></SwiperSlide>           
+                <SwiperSlide><CategoryItem/></SwiperSlide>           
+                <SwiperSlide><CategoryItem/></SwiperSlide>           
+                <SwiperSlide><CategoryItem/></SwiperSlide>           
+                <SwiperSlide><CategoryItem/></SwiperSlide>           
+                </Swiper>
             </div>
             <div className='mt-6 flex gap-6'>
                 <CategoryItem2/>

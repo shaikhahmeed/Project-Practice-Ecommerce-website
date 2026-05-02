@@ -71,12 +71,12 @@ const Navigation = () => {
               <Link><p className='text-secondary'>Wishlist</p></Link>
             </li>
             <li className='flex text-end gap-1'>
-              <Link><p className='text-primary'><FiShoppingCart /></p></Link>
-              <Link><p className='text-secondary'>Cart</p></Link>
+              <Link to={"/cart"}><p className='text-primary'><FiShoppingCart /></p></Link>
+              <Link to={"/cart"}><p className='text-secondary'>Cart</p></Link>
             </li>
             <li className='flex text-end gap-1'>
-              <Link><p className='text-primary'><FaRegUser /></p></Link>
-              <Link><p  className='text-secondary'>Account</p></Link>
+              <Link to={"/registration"}><p className='text-primary'><FaRegUser /></p></Link>
+              <Link to={"/registration"} ><p  className='text-secondary'>Account</p></Link>
             </li>
           </ul>
         </div>
@@ -100,8 +100,8 @@ const Navigation = () => {
             </li>
             <Link>About</Link>
             <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
-              <p>Shop </p>
-              <p><IoIosArrowDown /></p>
+              <Link to={"/shop"}>Shop</Link>
+              <Link><IoIosArrowDown /></Link>
             </li>
             <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
               <p>Vendors </p>

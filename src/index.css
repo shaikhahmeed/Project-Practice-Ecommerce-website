@@ -14,5 +14,13 @@ body{
     --color-primary:#253D4E;
     --color-secondary:#7E7E7E;
 }
+.swiper-pagination-bullet-active {
+  background-color: #3BB77E;
+}
+/* .swiper-pagination-bullet {
+  width: 400px;
+  height: 400px;
+} */
+ 
 
 
