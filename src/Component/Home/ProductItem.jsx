@@ -4,7 +4,7 @@ import { MdOutlineShoppingCart } from 'react-icons/md'
 
 const ProductItem = () => {
   return (
-    <div className='w-fit shadow-2xl rounded-xl'>
+    <div className='w-fit shadow-xl rounded-xl'>
       <div className='px-5 py-1.5 bg-[#F74B81] font-medium text-xs text-[#FFFFFF] max-w-fit rounded-tl-2xl rounded-br-2xl'>
         <p>Hot</p>
       </div>
