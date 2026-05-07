@@ -95,31 +95,19 @@ const Navigation = () => {
               <p>Deals</p>
             </li>
             <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
-              <p>Home </p>
+              <Link to={"/"}>Home </Link>
               <p><IoIosArrowDown /></p>
             </li>
-            <Link>About</Link>
+            <Link to={"/About"}>About</Link>
             <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
               <Link to={"/shop"}>Shop</Link>
               <Link><IoIosArrowDown /></Link>
             </li>
             <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
-              <p>Vendors </p>
-              <p><IoIosArrowDown /></p>
-            </li>
-            <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
-              <p>Megamenu </p>
-              <p><IoIosArrowDown /></p>
-            </li>
-            <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
-              <p>Blog </p>
-              <p><IoIosArrowDown /></p>
-            </li>
-            <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
               <p>Pages </p>
               <p><IoIosArrowDown /></p>
             </li>
-            <Link>Contact</Link>
+            <Link className='hover:text-brand' to={"/contact"}>Contact</Link>
           </ul>
         </div>
         <div>
