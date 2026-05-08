@@ -9,31 +9,33 @@ const ShopProduct = () => {
   
     useEffect(()=>{
       const shaikh = async()=>{
-        const options = {
+  const options = {
     method: 'GET',
-    url: 'https://api.freeapi.app/api/v1/ecommerce/products',
+    url: 'https://api.escuelajs.co/api/v1/products',
     params: {page: '1', limit: '10'},
-    headers: {accept: 'application/json'}
-  };
-  
-  try {
-    const  res  = await axios.request(options);
-    setProductList(res.data.data.products);
-  } catch (error) {
-    console.error(error);
-  }
-      };
-      shaikh();
+    headers: {accept: 'application/json'},
+};
+
+try {
+  const  res  = await axios.request(options);
+  setProductList(res.data);
+} catch (error) {
+  console.error(error);
+}
+    };
+    shaikh();
     },[])
+
+    // setProductList(res.data.data.products);
 
   return (
     <section>
         <div className="container">
-            <h2 className='text-xl font-medium text-primary mb-8'>Search your desire products</h2>
-            <div className='grid grid-cols-6'>
+             <p className='text-primary text-lg mb-5'>We found <span className='text-brand'>{productList.length}</span> items for you!</p>
+            <div className='grid grid-cols-5 gap-2.5'>
              {
               productList.map((item)=>(
-                <ProductItem key={item._id}
+                <ProductItem key={item.id}
                 data={item}/>
               ))
              }

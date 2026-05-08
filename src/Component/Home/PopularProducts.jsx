@@ -1,7 +1,30 @@
-import React from 'react'
+import React, { useEffect , useState } from 'react'
 import ProductItem from './ProductItem'
+import axios from 'axios';
 
 const PopularProducts = () => {
+    
+     const[productList,setProductList]=useState([]);
+      
+        useEffect(()=>{
+          const shaikh = async()=>{
+      const options = {
+        method: 'GET',
+        url: 'https://api.escuelajs.co/api/v1/products',
+        params: {page: '1', limit: '10'},
+        headers: {accept: 'application/json'},
+    };
+    
+    try {
+      const  res  = await axios.request(options);
+      setProductList(res.data);
+    } catch (error) {
+      console.error(error);
+    }
+        };
+        shaikh();
+        },[])
+
   return (
     <section>
         <div className="container mt-12">
@@ -17,17 +40,14 @@ const PopularProducts = () => {
                     <li className='cursor-pointer hover:text-brand'>Fruits</li>
                 </ul>
             </div>
-            <div className='mt-11 grid grid-cols-5'>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
-                <ProductItem/>
+            <div className='mt-11 grid grid-cols-5 gap-2.5'>
+                {
+                    productList.map((item)=>(
+                        <ProductItem key={item.id}
+                        data={item}
+                        />
+                    ))
+                }
             </div>
         </div>
     </section>

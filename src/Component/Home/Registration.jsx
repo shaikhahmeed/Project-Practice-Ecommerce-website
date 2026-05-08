@@ -54,7 +54,7 @@ theme="dark"
 />
   <div className="relative z-0 flex flex-col min-w-0 bg-white border-0 shadow-soft-xl rounded-2xl bg-clip-border">
     <div className="p-2 text-center">
-      <img src="public/logo.png" alt="logo" className='ml-6'/>
+      <Link to={"/"}><img src="public/logo.png" alt="logo" className='ml-6'/></Link>
       <h5 className="text-3xl mt-5 font-bold">Registration</h5>
     </div>
     <div>

@@ -61,22 +61,20 @@ const Navigation = () => {
           </div>
         </div>
         <div>
-          <ul className='flex gap-2.5'>
-            <li className='flex text-end gap-1'>
-               <Link><p className='text-primary'><FaArrowsRotate /></p></Link>
-               <Link><p className='text-secondary'>Compare</p></Link>
+          <ul className='flex gap-2.5 items-center'>
+            <li className='flex gap-2 items-center'>
+              <div className=' w-[30px] h-[30px] rounded-full bg-secondary overflow-hidden'>
+                <img src="" alt="userPhoto" />
+              </div>
+              <h2 className='text-base text-secondary font-medium'>User</h2>
             </li>
             <li className='flex text-end gap-1'>
-              <Link><p className='text-primary'><FaRegHeart /></p></Link>
-              <Link><p className='text-secondary'>Wishlist</p></Link>
+              <Link to={"/cart"}><p className='text-primary hover:text-brand'><FiShoppingCart /></p></Link>
+              <Link to={"/cart"}><p className='text-secondary hover:text-brand'>Cart</p></Link>
             </li>
             <li className='flex text-end gap-1'>
-              <Link to={"/cart"}><p className='text-primary'><FiShoppingCart /></p></Link>
-              <Link to={"/cart"}><p className='text-secondary'>Cart</p></Link>
-            </li>
-            <li className='flex text-end gap-1'>
-              <Link to={"/registration"}><p className='text-primary'><FaRegUser /></p></Link>
-              <Link to={"/registration"} ><p  className='text-secondary'>Account</p></Link>
+              <Link to={"/registration"}><p className='text-primary hover:text-brand'><FaRegUser /></p></Link>
+              <Link to={"/registration"} ><p  className='text-secondary hover:text-brand'>Account</p></Link>
             </li>
           </ul>
         </div>
@@ -92,7 +90,7 @@ const Navigation = () => {
           <ul className='flex gap-8 font-bold text-primary'>
             <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
               <p><FaFire /></p>
-              <p>Deals</p>
+              <Link to={"/deals"}>Deals</Link>
             </li>
             <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
               <Link to={"/"}>Home </Link>

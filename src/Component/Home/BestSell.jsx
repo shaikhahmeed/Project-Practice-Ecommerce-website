@@ -1,6 +1,7 @@
 import React from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 import ProductItem from './ProductItem'
+import BestSellItem from './BestSellItem'
 
 const BestSell = () => {
   return (
@@ -23,10 +24,10 @@ const BestSell = () => {
                     </button>
                 </div>
                 <div className='flex gap-8'>
-                    <ProductItem/>
-                    <ProductItem/>
-                    <ProductItem/>
-                    <ProductItem/>
+                    <BestSellItem/>
+                    <BestSellItem/>
+                    <BestSellItem/>
+                    <BestSellItem/>
                 </div>
             </div>
         </div>

@@ -1,27 +1,19 @@
 import React from 'react'
 import { FaStar } from 'react-icons/fa'
 import { MdOutlineShoppingCart } from 'react-icons/md'
-import { Link } from 'react-router';
+import { Link } from 'react-router'
 
-
-
-const ProductItem = ({data}) => {
-
-  console.log(data);
-
+const BestSellItem = () => {
   return (
-
-    // to={`/product_details/${data.slug}`}
-    
     <div className='w-fit border rounded-xl border-[#ECECEC] hover:border-brand transition-all'>
       <div className='px-5 py-1.5 bg-[#F74B81] font-medium text-xs text-[#FFFFFF] max-w-fit rounded-tl-2xl rounded-br-2xl'>
         <p>Hot</p>
       </div>
-      <img src={data?.images[0]} alt="product"/>
+      <img src='public/productItem.png' alt="product"/>
       <div className='px-5 pb-8'>
         <p className='font-medium text-xs text-[#ADADAD] mt-1.5'>Snack</p>
-       <Link  className='pt-2.5 font-bold text-base text-primary max-w-52 cursor-pointer hover:text-brand'>
-        {data?.title}
+       <Link  className='pt-2.5 font-bold text-base text-primary max-w-32 cursor-pointer hover:text-brand'>
+       Lorem ipsum dolor sit.
         </Link>
       <ul className='flex gap-7 items-center mt-2.5'>
         <li className='text-yellow-400'><FaStar /></li>
@@ -30,7 +22,7 @@ const ProductItem = ({data}) => {
       <p className='font-medium text-sm text-secondary mt-2.5'>By <span className='text-brand'>NestFood</span></p>
       <ul className='flex justify-between mt-6 items-center'>
         <li className='flex gap-2.5 items-end mt-6'>
-          <p className='font-bold text-lg text-brand'>${data?.price}</p>
+          <p className='font-bold text-lg text-brand'>$129</p>
           <p className='font-bold text-sm text-secondary'>$32.8</p>
         </li>
         <li className='flex gap-1 py-2.5 px-5 text-brand items-center bg-green-300 rounded-xs'>
@@ -43,4 +35,4 @@ const ProductItem = ({data}) => {
   )
 }
 
-export default ProductItem
+export default BestSellItem
