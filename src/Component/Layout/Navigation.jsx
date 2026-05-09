@@ -6,9 +6,22 @@ import { IoIosArrowDown, IoMdSearch } from 'react-icons/io'
 import { MdKeyboardArrowDown, MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import { PiCirclesFourLight } from 'react-icons/pi'
 import { TfiHeadphoneAlt } from 'react-icons/tfi'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router'
 
 const Navigation = () => {
+
+  // for data pass
+  const dispatch = useDispatch();
+
+  // for dat catch
+  const data = useSelector((state)=>
+     state.shaikh.value
+    
+  )
+  console.log(data);
+  
+
   return (
     <>
     <div className='container shadow-2xs pb-5'>
@@ -63,10 +76,10 @@ const Navigation = () => {
         <div>
           <ul className='flex gap-2.5 items-center'>
             <li className='flex gap-2 items-center'>
-              <div className=' w-[30px] h-[30px] rounded-full bg-secondary overflow-hidden'>
-                <img src="" alt="userPhoto" />
+              <div className=' w-[30px] h-[30px] rounded-full overflow-hidden'>
+                <img src={data?.usrPhoto} alt="userPhoto" />
               </div>
-              <h2 className='text-base text-secondary font-medium'>User</h2>
+              <h2 className='text-base text-secondary font-medium'>{data?.userName}</h2>
             </li>
             <li className='flex text-end gap-1'>
               <Link to={"/cart"}><p className='text-primary hover:text-brand'><FiShoppingCart /></p></Link>
