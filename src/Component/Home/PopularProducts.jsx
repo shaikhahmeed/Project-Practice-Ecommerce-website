@@ -1,6 +1,7 @@
 import React, { useEffect , useState } from 'react'
 import ProductItem from './ProductItem'
 import axios from 'axios';
+import { Link } from 'react-router';
 
 const PopularProducts = () => {
     
@@ -25,6 +26,8 @@ const PopularProducts = () => {
         shaikh();
         },[])
 
+        productList.length = 5;
+
   return (
     <section>
         <div className="container mt-12">
@@ -48,6 +51,9 @@ const PopularProducts = () => {
                         />
                     ))
                 }
+            </div>
+            <div className='text-base text-primary font-bold mt-4 flex justify-end'>
+                <Link to={"/shop"}>See more..</Link>
             </div>
         </div>
     </section>

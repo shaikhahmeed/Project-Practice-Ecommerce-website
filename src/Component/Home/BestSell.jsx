@@ -2,6 +2,7 @@ import React from 'react'
 import { FaArrowRight } from 'react-icons/fa'
 import ProductItem from './ProductItem'
 import BestSellItem from './BestSellItem'
+import { Link } from 'react-router'
 
 const BestSell = () => {
   return (
@@ -19,7 +20,7 @@ const BestSell = () => {
                 <div className='px-12 pt-12 w-fit pb-48 rounded-2xl bg-cover bg-no-repeat bg-center' style={{backgroundImage:"url('/bestSell.png')"}}>
                     <h3 className='font-bold text-4xl text-primary max-w-60'>Bring nature into your home</h3>
                     <button className='flex gap-1 items-center mt-24 font-bold text-xs text-[#FFFFFF] bg-brand rounded-xs py-2 px-3 cursor-pointer'>
-                    <p>Shop now</p>
+                    <Link to={"/shop"}>Shop now</Link>
                     <p><FaArrowRight /></p>
                     </button>
                 </div>

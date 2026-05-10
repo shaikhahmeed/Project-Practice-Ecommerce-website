@@ -1,32 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CiShoppingCart } from 'react-icons/ci'
-import { FaArrowsRotate, FaFire, FaRegHeart, FaRegUser } from 'react-icons/fa6'
+import { FaCartArrowDown, FaSearch } from 'react-icons/fa'
+import { FaArrowsRotate, FaBarsStaggered, FaFire, FaRegHeart, FaRegUser } from 'react-icons/fa6'
 import { FiShoppingCart } from 'react-icons/fi'
-import { IoIosArrowDown, IoMdSearch } from 'react-icons/io'
+import { IoIosArrowDown, IoIosLogOut, IoMdCloseCircleOutline, IoMdSearch } from 'react-icons/io'
 import { MdKeyboardArrowDown, MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import { PiCirclesFourLight } from 'react-icons/pi'
 import { TfiHeadphoneAlt } from 'react-icons/tfi'
-import { useDispatch, useSelector } from 'react-redux'
+import {  useSelector } from 'react-redux'
 import { Link } from 'react-router'
 
 const Navigation = () => {
 
-  // for data pass
-  const dispatch = useDispatch();
+  const[show,setShow]=useState(false);
+  const[sideBar,setSideBar]=useState(false);
+  //  const userData = useSelector((state)=>state.user.user)
+  // const cartData = useSelector((state)=>state.cart.cart)
 
-  // for dat catch
-  const data = useSelector((state)=>
-     state.shaikh.value
-    
+
+  // for data catch
+  const userData = useSelector((state)=>
+     state.user.user
   )
-  console.log(data);
+  console.log(userData);
   
 
   return (
     <>
     <div className='container shadow-2xs pb-5'>
        {/* header */}
-       <div className='flex justify-between border-b-2 border-b-[#ECECEC] pb-3'>
+       <div className='hidden xl:flex justify-between border-b-2 border-b-[#ECECEC] pb-3'>
         <div>
           <ul className='flex gap-5 text-secondary font-medium'>
             <li className='hover:text-brand'> About Us</li>
@@ -54,10 +57,13 @@ const Navigation = () => {
        </div>
        {/* body */}
        <div className='flex justify-between items-center my-9 border-b-2 border-b-[#ECECEC] pb-8'>
-        <div>
-          <Link to={""}><img src="public/logo.png" alt="logo" /></Link>
+        <div className='flex gap-8'>
+        <button onClick={()=>setSideBar(true)} className='block md:hidden cursor-pointer'>
+          <FaBarsStaggered/>
+        </button>
+        <Link to={"/"}><img src="public/logo.png" alt="logo" className='w-34 md:w-auto'/></Link>
         </div>
-        <div className='flex py-4 pl-5 pr-1.5 items-center gap-3.5 border-2 rounded-xl border-brand'>
+        <div className='hidden lg:flex py-4 pl-5 pr-1.5 items-center gap-3.5 border-2 rounded-xl border-brand'>
           <div>
             <select name="" id="" className='outline-0 cursor-pointer'>
             <option value="">All Categories</option>
@@ -68,39 +74,115 @@ const Navigation = () => {
             <option value="">All Categories</option>
             </select>
           </div>
-          <div className='text-center flex gap-80'>
+          <div className='text-center flex lg:gap-60 xl:gap-96'>
             <input type="text" placeholder='Search for items...' className='outline-0'/>
             <button className='cursor-pointer'><IoMdSearch /></button>
           </div>
         </div>
         <div>
-          <ul className='flex gap-2.5 items-center'>
-            <li className='flex gap-2 items-center'>
-              <div className=' w-[30px] h-[30px] rounded-full overflow-hidden'>
-                <img src={data?.usrPhoto} alt="userPhoto" />
-              </div>
-              <h2 className='text-base text-secondary font-medium'>{data?.userName}</h2>
-            </li>
-            <li className='flex text-end gap-1'>
+          <ul className='flex gap-1 md:gap-8 items-center'>
+            <li className='hidden  md:flex text-end gap-1'>
               <Link to={"/cart"}><p className='text-primary hover:text-brand'><FiShoppingCart /></p></Link>
               <Link to={"/cart"}><p className='text-secondary hover:text-brand'>Cart</p></Link>
             </li>
-            <li className='flex text-end gap-1'>
-              <Link to={"/registration"}><p className='text-primary hover:text-brand'><FaRegUser /></p></Link>
-              <Link to={"/registration"} ><p  className='text-secondary hover:text-brand'>Account</p></Link>
+            <li>
+              {
+                userData
+                ?
+                <>
+                <ul className='flex gap-1.5 items-center'>
+                  <li className='flex flex-col items-center'>
+                    <div className='w-[20px] h-[20px] md:w-[30px] md:h-[30px] rounded-full overflow-hidden'>
+                     <img src={userData?.avatar?.url} alt="userPhoto"/>
+                    </div>
+                    <h2 className='text-xs md:text-sm text-secondary font-medium'>{userData?.username}</h2>
+                  </li>
+                  <li>
+                    <Link className='text-medium text-lg' to={"/login"}><IoIosLogOut/></Link>
+                  </li>
+                </ul>
+                </>
+                :
+                <Link to={"/login"}>Login</Link>
+              }
             </li>
+            {/* <li className='flex text-end gap-1'>
+              <Link to={"/registration"}><p className='text-primary hover:text-brand '><FaRegUser /></p></Link>
+              <Link to={"/registration"} ><p  className='text-secondary hover:text-brand text-sm md:text-base'>Account</p></Link>
+            </li> */}
           </ul>
         </div>
        </div>
        {/* footer */}
+       {/* footer mobile view */}
+       <nav className={`w-full h-screen bg-[#0000003c] absolute top-0 left-0 z-99 transition-all ${sideBar?"translate-x-0 ": "-translate-x-full "} `}>
+    <div className="bg-white w-4/5 h-full overflow-y-auto">
+    <div>
+        <div className='flex justify-between items-center p-3 border-b border-[#ececec]'>
+          <Link><img src="public/logo.png" alt="logo" className='w-30'/></Link>
+          <button onClick={()=>setSideBar(false)} className='text-2xl text-brand cursor-pointer'><IoMdCloseCircleOutline/></button>
+        </div> 
+        <div className='m-4'>
+           <div className='w-90% flex gap-6 justify-between border border-[#ececec] bg-[#ececec] rounded-xs'>
+            <input type="text" placeholder='Search for items...' className='outline-0 p-3' />
+            <button className='w-full p-3 cursor-pointer hover:bg-brand transition'><FaSearch /></button>
+           </div>
+           <div className='mt-6'>
+              <ul className='flex flex-col text-base text-primary font-bold'>
+                <li className='flex justify-between items-center cursor-pointer p-3 border-b border-[#ececec]'>
+                  <Link className='hover:text-brand transition '>Deals</Link>
+                  <p><MdKeyboardArrowDown/></p>
+                </li>
+                <li className='flex justify-between items-center cursor-pointer p-3 border-b border-[#ececec]'>
+                  <Link to="/"  className='hover:text-brand transition'>Home </Link>
+                  <p><MdKeyboardArrowDown/></p>
+                </li>
+                <li className='flex justify-between items-center cursor-pointer p-3 border-b border-[#ececec]'>
+                  <Link to="/about" className='hover:text-brand transition '>About</Link>
+                  <p><MdKeyboardArrowDown/></p>
+                </li>
+                <li className='flex justify-between items-center cursor-pointer p-3 border-b border-[#ececec]'>
+                  <Link to="/shop" className='hover:text-brand transition'>Shop</Link>
+                  <p><MdKeyboardArrowDown/></p>
+                </li>
+                <li className='flex justify-between items-center cursor-pointer p-3 border-b border-[#ececec]'>
+                  <Link className='hover:text-brand transition'>Mega menu</Link>
+                  <p><MdKeyboardArrowDown/></p>
+                </li>
+                <li className='flex justify-between items-center cursor-pointer p-3 border-b border-[#ececec]'>
+                  <Link className='hover:text-brand transition'>Blog</Link>
+                  <p><MdKeyboardArrowDown/></p>
+                </li>
+                <li className='flex justify-between items-center cursor-pointer p-3 border-b border-[#ececec]'>
+                  <Link className='hover:text-brand transition'>Pages </Link>
+                  <p><MdKeyboardArrowDown/></p>
+                </li>
+                <li className='flex justify-between items-center cursor-pointer p-3 border-b border-[#ececec]'>
+                  <Link to="/contact" className='hover:text-brand transition'>Contact</Link>
+                  <p><MdKeyboardArrowDown/></p>
+                </li>
+                <li className='flex gap-2 items-center cursor-pointer p-3 border-b border-[#ececec] '>
+                  <p className='border border-brand rounded-full px-2 py-1 bg-brand text-xs absolute bottom-27 right-25 lg:right-8'>
+                cart
+                 </p>
+                  <p className='hover:text-brand transition'><FaCartArrowDown /></p>
+                  <Link to="/cart" className='hover:text-brand transition'>Your cart</Link>
+                </li>
+              </ul>
+           </div>
+        </div>
+    </div>
+    </div>
+    </nav>
+       {/* footer mobile view */}
        <div className='flex justify-between items-center shadow-2xs pb-3.5'>
-        <div className='flex gap-2 items-center py-3.5 px-5 text-base text-[#FFFFFF] bg-brand rounded-xl cursor-pointer'>
+        <div className='hidden md:flex gap-2 items-center py-3.5 px-5 text-base text-[#FFFFFF] bg-brand rounded-xl cursor-pointer'>
           <p><PiCirclesFourLight /></p>
           <p>Browse All Categories</p>
           <p><MdOutlineKeyboardArrowDown /></p>
         </div>
         <div>
-          <ul className='flex gap-8 font-bold text-primary'>
+          <ul className='hidden md:flex gap-8 font-bold text-primary'>
             <li className='flex gap-2 items-center hover:text-brand cursor-pointer'>
               <p><FaFire /></p>
               <Link to={"/deals"}>Deals</Link>
@@ -122,7 +204,7 @@ const Navigation = () => {
           </ul>
         </div>
         <div>
-          <ul className='flex gap-3'>
+          <ul className='hidden md:flex gap-3'>
             <li className='text-primary text-5xl'><TfiHeadphoneAlt /></li>
             <li>
               <p className='font-bold text-brand text-3xl'>1900 - 888</p>

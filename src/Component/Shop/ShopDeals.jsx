@@ -15,7 +15,7 @@ const ShopDeals = () => {
                 <ul className='hidden md:flex gap-4 text-base text-primary font-light'>
                  <li>
                     <Link to="/" className='hover:text-brand flex items-center'>
-                    <p>All deals</p>
+                    <Link to={"/deals"}>All deals</Link>
                     <p className='text-2xl'><MdKeyboardArrowRight/></p>
                     </Link>
                  </li>

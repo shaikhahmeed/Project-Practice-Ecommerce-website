@@ -1,15 +1,38 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { CategoryItem } from './CategoryItem'
 import "slick-carousel/slick/slick.css";
 import Slider from "react-slick";
 import CategoryItem2 from './CategoryItem2';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import axios from 'axios';
+
 
 
 const Category = () => {
+    const[categoryList,setCategoryList]=useState([])
+
+    useEffect(()=>{
+       (async()=>{
+         const options = {
+  method: 'GET',
+  url: 'https://api.freeapi.app/api/v1/ecommerce/categories',
+  params: {page: '1', limit: '10'},
+  headers: {accept: 'application/json'}
+};
+
+try {
+  const { data } = await axios.request(options);
+  setCategoryList(data.data.categories);
+} catch (error) {
+  console.error(error);
+}
+       })()
+    },[])
+
 
   return (
+    <>
     <section className='mt-14'>
         <div className="container">
             <div className='flex gap-7'>
@@ -22,19 +45,12 @@ const Category = () => {
                 </ul>
             </div>
             <div className='flex gap-6'>
-                <Swiper slidesPerView={10} 
-                        loop={true}>
-                <SwiperSlide><CategoryItem/></SwiperSlide>           
-                <SwiperSlide><CategoryItem/></SwiperSlide>           
-                <SwiperSlide><CategoryItem/></SwiperSlide>           
-                <SwiperSlide><CategoryItem/></SwiperSlide>           
-                <SwiperSlide><CategoryItem/></SwiperSlide>           
-                <SwiperSlide><CategoryItem/></SwiperSlide>           
-                <SwiperSlide><CategoryItem/></SwiperSlide>           
-                <SwiperSlide><CategoryItem/></SwiperSlide>           
-                <SwiperSlide><CategoryItem/></SwiperSlide>           
-                <SwiperSlide><CategoryItem/></SwiperSlide>           
-                <SwiperSlide><CategoryItem/></SwiperSlide>           
+                <Swiper slidesPerView={5} loop={true}>
+                     {
+                    categoryList.map((item)=>(
+                        <SwiperSlide><CategoryItem key={item._id} data={item}/></SwiperSlide>    
+                    ))
+                }        
                 </Swiper>
             </div>
             <div className='mt-6 flex gap-6'>
@@ -44,6 +60,7 @@ const Category = () => {
             </div>
         </div>
     </section>
+    </>
   )
 }
 

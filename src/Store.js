@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import   counterSlice  from './Slices/counterSlice'
+import  userSlice  from './Slices/userSlice'
 
 export default configureStore({
   reducer: {
-    shaikh : counterSlice,
+    user : userSlice
   },
 })
