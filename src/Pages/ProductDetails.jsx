@@ -1,33 +1,72 @@
-import React from 'react'
-import { FaStar } from 'react-icons/fa'
-import { IoHeartOutline } from 'react-icons/io5'
-import { TbArrowsCross } from 'react-icons/tb'
+import React, { useEffect, useState } from 'react'
 import ProductSlide from "product-slide";
+import { FaStar } from 'react-icons/fa';
+import { IoCartOutline, IoHeartOutline } from 'react-icons/io5';
+import { TbArrowsCross } from 'react-icons/tb';
+import axios from 'axios';
+import { useParams } from 'react-router';
+import { useDispatch } from 'react-redux';
+// import { addToCart } from '../slice/cartSlice';
 
 
 const ProductDetails = () => {
-    const images = [
-  "/images/product1.jpg",
-  "/images/product2.jpg",
-  "/images/product3.jpg",
-];
+
+  const dispatch=useDispatch()
+  const [quantity,setQuantity]=useState("1")
+
+  const params = useParams()
+
+    const [productData,setproductData]=useState({});
+
+    const handleAddCart=()=>{
+      dispatch(addToCart({quantity,productData}))
+    }
+   
+    useEffect(()=>{
+   
+     const api = async()=>{
+     const options = {
+       method: 'GET',
+       url: `https://api.escuelajs.co/api/v1/products`,
+       headers: {accept: 'application/json'},
+   };
+   
+   try {
+     const  res  = await axios.request(options);
+     res.data.find((item)=>{
+      if(item.slug == params.slug){
+        setproductData(item);
+      }
+     })
+   } catch (error) {
+     console.error(error);
+   }
+       };
+       api();
+     },[]);
+
+  const API = {
+  images: [
+    "https://i.imgur.com/QkIa5tT.jpeg",
+    "https://i.imgur.com/jb5Yu0h.jpeg",
+    "https://i.imgur.com/UlxxXyG.jpeg",
+  ],
+};
+ const settings = {
+    direction: "horizontal", // or "vertical"
+    zoom: true,          // or false
+  };
+
+
   return (
-     <section>
+    <section>
       <div className="container">
         <div className="md:flex mt-16 gap-11">
           <div className='w-1/3'>
-              <ProductSlide
-      images={images}
-      settings={{
-        direction: "horizontal",
-        zoom: true,
-        thumbnailPosition: "bottom",
-        transitionDuration: 300,
-      }}
-    />
+             <ProductSlide settings={settings} api={productData.images} />
           </div>
           <div className='pt-16'>
-            <h2 className='max-w-md font-bold  md:text-4xl text-primary'>Lorem ipsum dolor sit amet.</h2>
+            <h2 className='max-w-md font-bold  md:text-4xl text-primary'>{productData?.title}</h2>
             <ul className='flex gap-12 items-center pt-4 cursor-pointer'>
                   <li>
                     <p className='text-amber-400 '><FaStar/></p>
@@ -37,12 +76,13 @@ const ProductDetails = () => {
                   </li>
               </ul>
             <div className='flex gap-2.5 items-end'>
-              <p className='font-bold text-4xl md:text-6xl text-brand'>$180</p>
-              <p className='font-bold text-xl md:text-3xl text-secondary line-through'>$20</p>
+              <p className='font-bold text-4xl md:text-6xl text-brand'>${productData?.price}</p>
+              <p className='font-bold text-xl md:text-3xl text-secondary line-through'>${productData?.price + 100}</p>
             </div>
-            <p className='pt-9 font-medium text-base text-[#7E7E7E] max-w-md'>Lorem ipsum dolor sit amet.</p>
+            <p className='pt-9 font-medium text-base text-[#7E7E7E] max-w-md'>{productData?.description}</p>
                 <div className='flex pt-4 gap-2'>
                   <input
+                  onChange={(e)=>setQuantity(e.target.value)}
                   min="1"
                    type="number"  className='border-2 outline-0 text-center py-1 md:py-3 cursor-pointer border-brand w-20 rounded-xl'/>
                   <button onClick={handleAddCart} className='py-1 md:py-3.5 px-1.5 md:px-5 bg-brand font-bold text-xs md:text-base text-[#FFFFFF] rounded-xl cursor-pointer flex items-center gap-0.5 md:gap-1'><IoCartOutline />Add to cart</button>
