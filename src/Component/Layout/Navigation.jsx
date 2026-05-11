@@ -15,7 +15,7 @@ const Navigation = () => {
   const[show,setShow]=useState(false);
   const[sideBar,setSideBar]=useState(false);
   //  const userData = useSelector((state)=>state.user.user)
-  // const cartData = useSelector((state)=>state.cart.cart)
+  const cartData = useSelector((state)=>state.cart.cart)
 
 
   // for data catch
@@ -81,17 +81,22 @@ const Navigation = () => {
         </div>
         <div>
           <ul className='flex gap-1 md:gap-8 items-center'>
-            <li className='hidden  md:flex text-end gap-1'>
-              <Link to={"/cart"}><p className='text-primary hover:text-brand'><FiShoppingCart /></p></Link>
-              <Link to={"/cart"}><p className='text-secondary hover:text-brand'>Cart</p></Link>
-            </li>
+            <li className='flex gap-5 items-center cursor-pointer p-3 border-b border-[#ececec] '>
+                  <p className='border border-brand rounded-full px-2 py-1 bg-brand text-xs absolute top-19 right-58'>
+                  {
+                   cartData.length
+                  }
+                 </p>
+                  <p className='hover:text-brand transition'><FaCartArrowDown /></p>
+                  <Link to="/cart" className='hover:text-brand transition'>Your cart</Link>
+                </li>
             <li>
               {
                 userData
                 ?
                 <>
                 <ul className='flex gap-1.5 items-center'>
-                  <li className='flex flex-col items-center'>
+                  <li className='flex items-center'>
                     <div className='w-[20px] h-[20px] md:w-[30px] md:h-[30px] rounded-full overflow-hidden'>
                      <img src={userData?.avatar?.url} alt="userPhoto"/>
                     </div>

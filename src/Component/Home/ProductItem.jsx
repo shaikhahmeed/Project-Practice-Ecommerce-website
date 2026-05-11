@@ -20,7 +20,7 @@ const ProductItem = ({data}) => {
       <img src={data?.images[0]} alt="product"/>
       <div className='px-5 pb-8'>
         <p className='font-medium text-xs text-[#ADADAD] mt-1.5'>Snack</p>
-       <Link  className='pt-2.5 font-bold text-base text-primary max-w-52 cursor-pointer hover:text-brand'>
+       <Link to={`/details/${data.slug}`} className='pt-2.5 font-bold text-base text-primary max-w-52 cursor-pointer hover:text-brand'>
         {data?.title}
         </Link>
       <ul className='flex gap-7 items-center mt-2.5'>

@@ -8,11 +8,11 @@ const Footer = () => {
   return (
     <footer>
         <div className="container flex justify-between mt-9">
-            <div className='font-medium text-sm text-secondary'>
+            <div className='hidden md:block font-medium text-sm text-secondary'>
                 <p>© 2024, <span className='text-brand'>Nest</span> - HTML Ecommerce Template All rights reserved</p>
                 <p>All rights reserved</p>
             </div>
-            <div className='flex gap-14'>
+            <div className='hidden md:flex gap-14'>
                 <div>
                     <ul className='flex gap-4'>
                         <li className='text-5xl text-secondary'><MdWifiCalling3 /></li>
@@ -35,7 +35,7 @@ const Footer = () => {
             <div>
                 <div>
                     <ul className='flex gap-2.5 items-center'>
-                        <li className='font-bold text-base text-primary'>Follow Us</li>
+                        <li className='font-bold text-base text-primary'>Follow Us On</li>
                         <li className='flex gap-1'>
                             <Link className='p-1.5 text-[#FFFFFF] bg-brand rounded-full hover:bg-[#1877F2]'><FaFacebookF /></Link>
                             <Link className='p-1.5 text-[#FFFFFF] bg-brand rounded-full hover:bg-[#1DA1F2]'><FaTwitter /></Link>
@@ -45,7 +45,7 @@ const Footer = () => {
                         </li>
                     </ul>
                 </div>
-                <p className='font-medium text-sm text-secondary mt-1.5'>Up to 15% discount on your first subscribe</p>
+                <p className='hidden md:block font-medium text-sm text-secondary mt-1.5'>Up to 15% discount on your first subscribe</p>
             </div>
         </div>
     </footer>

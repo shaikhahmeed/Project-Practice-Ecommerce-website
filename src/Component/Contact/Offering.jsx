@@ -3,7 +3,7 @@ import OfferingItem from './OfferingItem'
 
 const Offering = () => {
   return (
-    <div className='container mt-12'>
+    <div className='container mt-12 hidden md:block'>
         <div className='hidden md:flex gap-6'>
         <OfferingItem/>
         <OfferingItem/>

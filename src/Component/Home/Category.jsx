@@ -37,7 +37,7 @@ try {
         <div className="container">
             <div className='flex gap-7'>
                 <h2 className='font-bold text-3xl text-primary'>Featured Categories</h2>
-                <ul className='font-light text-base flex gap-7 text-primary items-end'>
+                <ul className='font-light text-base hidden md:flex gap-7 text-primary items-end'>
                     <li className='cursor-pointer hover:text-brand'>Cake & Milk</li>
                     <li className='cursor-pointer hover:text-brand'>Coffes & Teas</li>
                     <li className='cursor-pointer hover:text-brand'>Pet Foods</li>
@@ -53,7 +53,7 @@ try {
                 }        
                 </Swiper>
             </div>
-            <div className='mt-6 flex gap-6'>
+            <div className='mt-6 md:flex gap-6'>
                 <CategoryItem2/>
                 <CategoryItem2/>
                 <CategoryItem2/>

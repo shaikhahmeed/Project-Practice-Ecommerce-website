@@ -33,7 +33,7 @@ const PopularProducts = () => {
         <div className="container mt-12">
             <div className='flex justify-between'>
                 <h2 className='font-bold text-3xl text-primary'>Popular Products</h2>
-                <ul className='font-light text-base flex gap-7 text-primary items-end'>
+                <ul className='font-light text-base hidden md:flex gap-7 text-primary items-end'>
                     <li className='cursor-pointer hover:text-brand'>All</li>
                     <li className='cursor-pointer hover:text-brand'>Milks & Dairies</li>
                     <li className='cursor-pointer hover:text-brand'>Coffes & Teas</li>
@@ -43,7 +43,7 @@ const PopularProducts = () => {
                     <li className='cursor-pointer hover:text-brand'>Fruits</li>
                 </ul>
             </div>
-            <div className='mt-11 grid grid-cols-5 gap-2.5'>
+            <div className='mt-11 grid grid-cols-1 md:grid-cols-5 gap-2.5'>
                 {
                     productList.map((item)=>(
                         <ProductItem key={item.id}

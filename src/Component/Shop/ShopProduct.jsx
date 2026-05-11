@@ -32,7 +32,7 @@ try {
     <section>
         <div className="container">
              <p className='text-primary text-lg mb-5'>We found <span className='text-brand'>{productList.length}</span> items for you!</p>
-            <div className='grid grid-cols-5 gap-2.5'>
+            <div className='grid grid-cols-1 md:grid-cols-5 gap-2.5'>
              {
               productList.map((item)=>(
                 <ProductItem key={item.id}

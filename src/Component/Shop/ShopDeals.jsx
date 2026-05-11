@@ -5,7 +5,7 @@ import { Link } from 'react-router'
 
 const ShopDeals = () => {
   return (
-     <section className='mb-36'>
+     <section className='mb-36 hidden md:block'>
         <div className="container">
         <div className='flex gap-7 items-end justify-between mt-8'>
                <div>

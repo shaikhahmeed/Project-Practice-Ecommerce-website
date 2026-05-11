@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import ProductSlide from "product-slide";
+import "product-slide/style.css";
 import { FaStar } from 'react-icons/fa';
 import { IoCartOutline, IoHeartOutline } from 'react-icons/io5';
 import { TbArrowsCross } from 'react-icons/tb';
@@ -7,21 +8,28 @@ import axios from 'axios';
 import { useParams } from 'react-router';
 import { useDispatch } from 'react-redux';
 // import { addToCart } from '../slice/cartSlice';
+// const API = {
+// images: [
+//   "https://i.imgur.com/QkIa5tT.jpeg",
+//   "https://i.imgur.com/jb5Yu0h.jpeg",
+//   "https://i.imgur.com/UlxxXyG.jpeg",
+// ],
+// };
 
 
 const ProductDetails = () => {
 
   const dispatch=useDispatch()
   const [quantity,setQuantity]=useState("1")
-
+ 
   const params = useParams()
-
-    const [productData,setproductData]=useState({});
-
-    const handleAddCart=()=>{
+   
+   const handleAddCart=()=>{
       dispatch(addToCart({quantity,productData}))
     }
-   
+    
+    const [productData,setproductData]=useState({});
+
     useEffect(()=>{
    
      const api = async()=>{
@@ -45,17 +53,11 @@ const ProductDetails = () => {
        api();
      },[]);
 
-  const API = {
-  images: [
-    "https://i.imgur.com/QkIa5tT.jpeg",
-    "https://i.imgur.com/jb5Yu0h.jpeg",
-    "https://i.imgur.com/UlxxXyG.jpeg",
-  ],
-};
- const settings = {
-    direction: "horizontal", // or "vertical"
-    zoom: true,          // or false
-  };
+     const images = [
+  "/images/product1.jpg",
+  "/images/product2.jpg",
+  "/images/product3.jpg",
+];
 
 
   return (
@@ -63,7 +65,15 @@ const ProductDetails = () => {
       <div className="container">
         <div className="md:flex mt-16 gap-11">
           <div className='w-1/3'>
-             <ProductSlide settings={settings} api={productData.images} />
+              <ProductSlide
+      images={productData.images}
+      settings={{
+        direction: "horizontal",
+        zoom: true,
+        thumbnailPosition: "bottom",
+        transitionDuration: 300,
+      }}
+    />
           </div>
           <div className='pt-16'>
             <h2 className='max-w-md font-bold  md:text-4xl text-primary'>{productData?.title}</h2>
