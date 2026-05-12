@@ -81,13 +81,13 @@ const Navigation = () => {
         </div>
         <div>
           <ul className='flex gap-1 md:gap-8 items-center'>
-            <li className='flex gap-5 items-center cursor-pointer p-3 border-b border-[#ececec] '>
+            <li className='hidden md:flex gap-5 items-center cursor-pointer p-3 border-b border-[#ececec] '>
                   <p className='border border-brand rounded-full px-2 py-1 bg-brand text-xs absolute top-19 right-58'>
                   {
                    cartData.length
                   }
                  </p>
-                  <p className='hover:text-brand transition'><FaCartArrowDown /></p>
+                  <p className='hover:text-brand transition text-2xl'><FaCartArrowDown /></p>
                   <Link to="/cart" className='hover:text-brand transition'>Your cart</Link>
                 </li>
             <li>
@@ -167,8 +167,10 @@ const Navigation = () => {
                   <p><MdKeyboardArrowDown/></p>
                 </li>
                 <li className='flex gap-2 items-center cursor-pointer p-3 border-b border-[#ececec] '>
-                  <p className='border border-brand rounded-full px-2 py-1 bg-brand text-xs absolute bottom-27 right-25 lg:right-8'>
-                cart
+                  <p className='border border-brand rounded-full px-2 py-1 bg-brand text-xs absolute bottom-45 right-28 lg:right-8'>
+                  {
+                   cartData.length
+                  }
                  </p>
                   <p className='hover:text-brand transition'><FaCartArrowDown /></p>
                   <Link to="/cart" className='hover:text-brand transition'>Your cart</Link>

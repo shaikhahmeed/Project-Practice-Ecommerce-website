@@ -7,6 +7,7 @@ import { TbArrowsCross } from 'react-icons/tb';
 import axios from 'axios';
 import { useParams } from 'react-router';
 import { useDispatch } from 'react-redux';
+import { addToCart } from '../Slices/CartSlice';
 // import { addToCart } from '../slice/cartSlice';
 // const API = {
 // images: [
