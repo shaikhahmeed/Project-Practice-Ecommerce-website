@@ -81,12 +81,12 @@ const Navigation = () => {
         </div>
         <div>
           <ul className='flex gap-1 md:gap-8 items-center'>
-            <li className='hidden md:flex gap-5 items-center cursor-pointer p-3 border-b border-[#ececec] '>
-                  <p className='border border-brand rounded-full px-2 py-1 bg-brand text-xs absolute top-19 right-58'>
+            <li className='hidden md:flex gap-1.5 items-center cursor-pointer p-3 border-b border-[#ececec] '>
+                  {/* <p className='border border-brand rounded-full px-2 py-1 bg-brand text-xs absolute top-19 right-45'>
                   {
                    cartData.length
                   }
-                 </p>
+                 </p> */}
                   <p className='hover:text-brand transition text-2xl'><FaCartArrowDown /></p>
                   <Link to="/cart" className='hover:text-brand transition'>Your cart</Link>
                 </li>
@@ -110,11 +110,7 @@ const Navigation = () => {
                 :
                 <Link to={"/login"}>Login</Link>
               }
-            </li>
-            {/* <li className='flex text-end gap-1'>
-              <Link to={"/registration"}><p className='text-primary hover:text-brand '><FaRegUser /></p></Link>
-              <Link to={"/registration"} ><p  className='text-secondary hover:text-brand text-sm md:text-base'>Account</p></Link>
-            </li> */}
+            </li>     
           </ul>
         </div>
        </div>
@@ -167,11 +163,11 @@ const Navigation = () => {
                   <p><MdKeyboardArrowDown/></p>
                 </li>
                 <li className='flex gap-2 items-center cursor-pointer p-3 border-b border-[#ececec] '>
-                  <p className='border border-brand rounded-full px-2 py-1 bg-brand text-xs absolute bottom-45 right-28 lg:right-8'>
+                  {/* <p className='border border-brand rounded-full px-2 py-1 bg-brand text-xs absolute bottom-45 right-28 lg:right-8'>
                   {
                    cartData.length
                   }
-                 </p>
+                 </p> */}
                   <p className='hover:text-brand transition'><FaCartArrowDown /></p>
                   <Link to="/cart" className='hover:text-brand transition'>Your cart</Link>
                 </li>
